@@ -24,7 +24,7 @@ public class Paciente {
     @OneToOne
     private Domicilio domicilio;
 
-    @OneToMany(mappedBy = "paciente_id")
+    @OneToMany(mappedBy = "paciente")
     @JsonIgnore //Esta anotacion se acrega porque el mapper sino entra en un ciclo infinito
     //Al buscar los metodos y atributos de Paciente que tiene turnos y cuando va a turnos tiene Pacientes...
     private Set<Turno> turnos;

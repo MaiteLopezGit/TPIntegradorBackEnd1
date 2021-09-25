@@ -1,15 +1,21 @@
 package LopezMaiteValeria.TPFinal.controller;
 
+import LopezMaiteValeria.TPFinal.model.OdontologoDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IController<T> {
-    ResponseEntity<T> crear(@RequestBody T t);
-    ResponseEntity<T> buscar(@PathVariable Integer id);
-    ResponseEntity<T> actualizar(@RequestBody T t);
-    ResponseEntity<String> eliminar(@PathVariable Integer id);
-    ResponseEntity<List<T>> buscarTodos();
+
+    public ResponseEntity<?> crear(T t);
+
+    public ResponseEntity<Set<T>> buscarTodos();
+
+    public ResponseEntity<T> buscar(Integer id);
+
+    ResponseEntity<?> actualizar(T t);
+
+    ResponseEntity<String> eliminar(Integer id);
 }

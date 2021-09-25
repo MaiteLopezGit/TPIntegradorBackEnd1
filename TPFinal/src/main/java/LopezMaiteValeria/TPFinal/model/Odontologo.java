@@ -22,7 +22,7 @@ public class Odontologo {
     private String apellido;
     private String matricula;
 
-    @OneToMany(mappedBy = "odontologo_id")
+    @OneToMany(mappedBy = "odontologo")
     @JsonIgnore
     private Set<Turno> turnos;
 

@@ -1,6 +1,6 @@
 package LopezMaiteValeria.TPFinal.service.impl;
 
-import LopezMaiteValeria.TPFinal.model.DTO.OdontologoDTO;
+import LopezMaiteValeria.TPFinal.model.OdontologoDTO;
 import LopezMaiteValeria.TPFinal.model.Odontologo;
 import LopezMaiteValeria.TPFinal.repository.IOdontologoRepository;
 import LopezMaiteValeria.TPFinal.service.IService;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class OdontologoService implements IService<OdontologoDTO>{
+public class OdontologoService implements IService<OdontologoDTO> {
 
     @Autowired
     private IOdontologoRepository odontologoRepository;
@@ -22,20 +22,19 @@ public class OdontologoService implements IService<OdontologoDTO>{
 
     private final Logger logger = Logger.getLogger(OdontologoService.class);
 
-    //@Override
+    @Override
     public void crear(OdontologoDTO odontologoDTO) {
         logger.debug("Iniciando el metodo crear()");
         Odontologo odontologo = mapper.convertValue(odontologoDTO, Odontologo.class);
-        Odontologo odontologoNuevo = null;
         try {
-            odontologoNuevo = odontologoRepository.save(odontologo);
+            odontologoRepository.save(odontologo);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo crear()");
     }
 
-    //@Override
+    @Override
     public OdontologoDTO buscar(Integer id) {
         logger.debug("Iniciando el metodo buscar()");
         OdontologoDTO odontologoDTO = null;
@@ -53,7 +52,7 @@ public class OdontologoService implements IService<OdontologoDTO>{
         return odontologoDTO;
     }
 
-    //@Override
+    @Override
     public void actualizar(OdontologoDTO odontologoDTO) {
         Odontologo odontologoActualizado = mapper.convertValue(odontologoDTO, Odontologo.class);
 
@@ -65,8 +64,8 @@ public class OdontologoService implements IService<OdontologoDTO>{
         }
     }
 
-    //@Override
-    public Collection<OdontologoDTO> buscarTodos() {
+    @Override
+    public Set<OdontologoDTO> buscarTodos() {
         List<Odontologo> odontologos = new ArrayList<>();
         Set<OdontologoDTO> odontologosDTO = new HashSet<>();
         try {
@@ -81,7 +80,7 @@ public class OdontologoService implements IService<OdontologoDTO>{
         return odontologosDTO;
     }
 
-    //@Override
+    @Override
     public void eliminar(Integer id) {
         try {
             odontologoRepository.deleteById(id);

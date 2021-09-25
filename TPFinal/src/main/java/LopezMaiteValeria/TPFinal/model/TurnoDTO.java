@@ -1,4 +1,4 @@
-package LopezMaiteValeria.TPFinal.model.DTO;
+package LopezMaiteValeria.TPFinal.model;
 
 import lombok.Getter;
 import lombok.Setter;

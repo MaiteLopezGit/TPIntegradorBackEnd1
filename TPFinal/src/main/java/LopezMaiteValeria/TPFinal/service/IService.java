@@ -7,7 +7,7 @@ import java.util.Set;
 public interface IService<T> {
     void crear(T t);
     T buscar(Integer id);
-    Collection<T> buscarTodos();
+    Set<T> buscarTodos();
     void actualizar(T t);
     void eliminar(Integer id);
 }

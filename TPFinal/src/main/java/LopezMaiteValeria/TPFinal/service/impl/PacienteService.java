@@ -1,6 +1,6 @@
 package LopezMaiteValeria.TPFinal.service.impl;
 
-import LopezMaiteValeria.TPFinal.model.DTO.PacienteDTO;
+import LopezMaiteValeria.TPFinal.model.PacienteDTO;
 import LopezMaiteValeria.TPFinal.model.Paciente;
 import LopezMaiteValeria.TPFinal.repository.IPacienteRepository;
 import LopezMaiteValeria.TPFinal.service.IService;
@@ -53,7 +53,7 @@ public class PacienteService implements IService<PacienteDTO> {
     }
 
     @Override
-    public Collection<PacienteDTO> buscarTodos() {
+    public Set<PacienteDTO> buscarTodos() {
         logger.debug("Iniciando el metodo buscarTodos()");
         List<Paciente> pacientes = new ArrayList<>();
         Set<PacienteDTO> pacientesDTO = new HashSet<>();

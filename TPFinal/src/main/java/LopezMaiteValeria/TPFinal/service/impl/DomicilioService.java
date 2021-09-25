@@ -1,6 +1,6 @@
 package LopezMaiteValeria.TPFinal.service.impl;
 
-import LopezMaiteValeria.TPFinal.model.DTO.DomicilioDTO;
+import LopezMaiteValeria.TPFinal.model.DomicilioDTO;
 import LopezMaiteValeria.TPFinal.model.Domicilio;
 import LopezMaiteValeria.TPFinal.repository.IDomicilioRepository;
 import LopezMaiteValeria.TPFinal.service.IService;
@@ -52,7 +52,7 @@ public class DomicilioService implements IService<DomicilioDTO> {
     }
 
     @Override
-    public Collection<DomicilioDTO> buscarTodos() {
+    public Set<DomicilioDTO> buscarTodos() {
         logger.debug("Iniciando el metodo buscarTodos()");
         List<Domicilio> domicilios = new ArrayList<>();
         Set<DomicilioDTO> domiciliosDTO = new HashSet<>();

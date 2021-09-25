@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "turnos")
+@Table (name = "Turnos")
 @Getter
 @Setter
 public class Turno {
@@ -30,3 +30,5 @@ public class Turno {
         return this.id;
     }
 }
+
+

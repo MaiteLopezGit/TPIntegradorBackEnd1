@@ -1,6 +1,6 @@
 package LopezMaiteValeria.TPFinal.service.impl;
 
-import LopezMaiteValeria.TPFinal.model.DTO.TurnoDTO;
+import LopezMaiteValeria.TPFinal.model.TurnoDTO;
 import LopezMaiteValeria.TPFinal.model.Turno;
 import LopezMaiteValeria.TPFinal.repository.ITurnoRepository;
 import LopezMaiteValeria.TPFinal.service.IService;
@@ -50,7 +50,7 @@ public class TurnoService implements IService<TurnoDTO> {
     }
 
     @Override
-    public Collection<TurnoDTO> buscarTodos() {
+    public Set<TurnoDTO> buscarTodos() {
         logger.debug("Iniciando el metodo buscarTodos()");
         List<Turno> turnos = new ArrayList<>();
         Set<TurnoDTO> turnosDto = new HashSet<>();

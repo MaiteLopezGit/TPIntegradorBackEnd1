@@ -1,21 +1,20 @@
-package LopezMaiteValeria.TPFinal.model.DTO;
+package LopezMaiteValeria.TPFinal.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @ToString
-
-public class PacienteDTO {
+public class OdontologoDTO {
 
     private Integer id;
     private String nombre;
     private String apellido;
-    private int dni;
-    private LocalDateTime fechaIngreso;
+    private String matricula;
 
+    public Integer getId() {
+        return this.id;
+    }
 }
