@@ -1,74 +1,87 @@
-package LopezMaiteValeria.TPFinal.service;
+package LopezMaiteValeria.TPFinal.service.impl;
 
+import LopezMaiteValeria.TPFinal.model.DTO.PacienteDTO;
 import LopezMaiteValeria.TPFinal.model.Paciente;
 import LopezMaiteValeria.TPFinal.repository.IPacienteRepository;
+import LopezMaiteValeria.TPFinal.service.IService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 import org.apache.log4j.Logger;
 
 @Service
-public class PacienteService implements IService<Paciente>{
+public class PacienteService implements IService<PacienteDTO> {
 
     @Autowired
     IPacienteRepository pacienteRepository;
 
     private final Logger logger = Logger.getLogger(PacienteService.class);
+    private ObjectMapper mapper;
 
     @Override
-    public Paciente crear(Paciente paciente) {
-        Paciente pacienteCreado = null;
+    public void crear(PacienteDTO pacienteDTO) {
+        Paciente paciente = null;
         try {
-            pacienteCreado = pacienteRepository.save(paciente);
+            paciente = mapper.convertValue(pacienteDTO, Paciente.class);
+            pacienteRepository.save(paciente);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el medoto crear()");
-        return pacienteCreado;
     }
 
     @Override
-    public Paciente buscar(Integer id) {
+    public PacienteDTO buscar(Integer id) {
         Paciente pacienteEncontrado = null;
+        PacienteDTO pacienteDTO = null;
         try {
             if(pacienteRepository.findById(id).isPresent())
+            {
                 pacienteEncontrado = pacienteRepository.findById(id).get();
+                pacienteDTO = mapper.convertValue(pacienteEncontrado, PacienteDTO.class);
+            }
             else
                 throw new Exception("No se encontro el paciente con el id: " +id+ " buscado");
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo buscar()");
-        return pacienteEncontrado;
+        return pacienteDTO;
     }
 
     @Override
-    public List<Paciente> buscarTodos() {
+    public Collection<PacienteDTO> buscarTodos() {
         logger.debug("Iniciando el metodo buscarTodos()");
         List<Paciente> pacientes = new ArrayList<>();
+        Set<PacienteDTO> pacientesDTO = new HashSet<>();
+
         try {
             pacientes = pacienteRepository.findAll();
+            for(Paciente paciente : pacientes){
+                pacientesDTO.add(mapper.convertValue(paciente, PacienteDTO.class));
+            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo buscarTodos()");
-        return pacientes;
+        return pacientesDTO;
     }
 
     @Override
-    public Paciente actualizar(Paciente paciente) {
+    public void actualizar(PacienteDTO pacienteDTO) {
         logger.debug("Iniciando el metodo actualizar()");
-        Paciente pacienteActualizado = null;
+        Paciente paciente = null;
         try {
+            paciente = mapper.convertValue(pacienteDTO, Paciente.class);
             if(pacienteRepository.existsById(paciente.getId()))
-                pacienteActualizado = pacienteRepository.save(paciente);
+                pacienteRepository.save(paciente);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminado el metodo actualizar()");
-        return pacienteActualizado;
     }
 
     @Override

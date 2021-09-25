@@ -1,74 +1,85 @@
-package LopezMaiteValeria.TPFinal.service;
+package LopezMaiteValeria.TPFinal.service.impl;
 
+import LopezMaiteValeria.TPFinal.model.DTO.TurnoDTO;
 import LopezMaiteValeria.TPFinal.model.Turno;
 import LopezMaiteValeria.TPFinal.repository.ITurnoRepository;
+import LopezMaiteValeria.TPFinal.service.IService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
-public class TurnoService implements IService<Turno>{
+public class TurnoService implements IService<TurnoDTO> {
     @Autowired
     ITurnoRepository turnoRepository;
 
     private final Logger logger = Logger.getLogger(TurnoService.class);
+    private ObjectMapper mapper;
 
     @Override
-    public Turno crear(Turno turno) {
+    public void crear(TurnoDTO turnoDTO) {
         logger.debug("Iniciando el metodo crear()");
-        Turno turnoCreado = null;
+        Turno turno = mapper.convertValue(turnoDTO, Turno.class);
+
         try {
             turnoRepository.save(turno);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Finalizando el metodo crear()");
-        return turnoCreado;
     }
 
     @Override
-    public Turno buscar(Integer id) {
+    public TurnoDTO buscar(Integer id) {
         logger.debug("Iniciando el metodo buscar()");
-        Turno turnoBuscado = null;
+        Turno turno = null;
+        TurnoDTO turnoDTO = null;
+
         try {
             if (turnoRepository.findById(id).isPresent())
-                turnoBuscado = turnoRepository.findById(id).get();
+                turno = turnoRepository.findById(id).get();
+                turnoDTO = mapper.convertValue(turno, TurnoDTO.class);
         } catch (Exception e){
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo buscar()");
-        return turnoBuscado;
+        return turnoDTO;
     }
 
     @Override
-    public List<Turno> buscarTodos() {
+    public Collection<TurnoDTO> buscarTodos() {
         logger.debug("Iniciando el metodo buscarTodos()");
         List<Turno> turnos = new ArrayList<>();
+        Set<TurnoDTO> turnosDto = new HashSet<>();
+
         try {
             turnos = turnoRepository.findAll();
+            for (Turno turno: turnos){
+                turnosDto.add(mapper.convertValue(turno, TurnoDTO.class));
+            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo buscarTodos()");
-        return turnos;
+        return turnosDto;
     }
 
     @Override
-    public Turno actualizar(Turno turno) {
+    public void actualizar(TurnoDTO turnoDTO) {
         logger.debug("Iniciando el metodo actualizar()");
-        Turno turnoActualizado = null;
+        Turno turno = null;
 
         try {
             if(turnoRepository.existsById(turno.getId()))
-                turnoActualizado = turnoRepository.save(turno);
+                turno = mapper.convertValue(turnoDTO, Turno.class);
+                turnoRepository.save(turno);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         logger.debug("Terminando el metodo actualizar()");
-        return turnoActualizado;
     }
 
     @Override

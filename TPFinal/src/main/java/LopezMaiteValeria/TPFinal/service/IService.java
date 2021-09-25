@@ -1,12 +1,13 @@
 package LopezMaiteValeria.TPFinal.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 public interface IService<T> {
-    T crear(T t);
+    void crear(T t);
     T buscar(Integer id);
-    List<T> buscarTodos();
-    T actualizar(T t);
+    Collection<T> buscarTodos();
+    void actualizar(T t);
     void eliminar(Integer id);
 }

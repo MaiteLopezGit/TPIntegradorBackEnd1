@@ -1,5 +1,6 @@
 package LopezMaiteValeria.TPFinal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,8 @@ public class Paciente {
     private Domicilio domicilio;
 
     @OneToMany(mappedBy = "paciente_id")
+    @JsonIgnore //Esta anotacion se acrega porque el mapper sino entra en un ciclo infinito
+    //Al buscar los metodos y atributos de Paciente que tiene turnos y cuando va a turnos tiene Pacientes...
     private Set<Turno> turnos;
 
     public Integer getId() {
