@@ -25,4 +25,8 @@ public class Turno {
     @ManyToOne
     @JoinColumn( name = "odontologo_id", nullable = false)
     private Odontologo odontologo;
+
+    public Integer getId() {
+        return this.id;
+    }
 }

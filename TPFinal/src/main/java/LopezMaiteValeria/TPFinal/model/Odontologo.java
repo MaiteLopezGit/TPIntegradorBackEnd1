@@ -11,6 +11,7 @@ import java.util.Set;
 @Getter @Setter
 public class Odontologo {
 
+
     @Id
     @GeneratedValue
     private Integer id;
@@ -20,4 +21,8 @@ public class Odontologo {
 
     @OneToMany(mappedBy = "odontologo_id")
     private Set<Turno> turnos;
+
+    public Integer getId() {
+        return this.id;
+    }
 }

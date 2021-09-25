@@ -21,4 +21,8 @@ public class Domicilio {
 
     @OneToOne
     private Paciente paciente;
+
+    public Integer getId() {
+        return this.id;
+    }
 }

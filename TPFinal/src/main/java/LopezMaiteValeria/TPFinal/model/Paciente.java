@@ -25,4 +25,8 @@ public class Paciente {
 
     @OneToMany(mappedBy = "paciente_id")
     private Set<Turno> turnos;
+
+    public Integer getId() {
+        return this.id;
+    }
 }
