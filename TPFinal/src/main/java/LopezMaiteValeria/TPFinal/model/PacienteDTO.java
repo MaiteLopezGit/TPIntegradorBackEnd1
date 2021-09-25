@@ -17,5 +17,6 @@ public class PacienteDTO {
     private String apellido;
     private int dni;
     private LocalDateTime fechaIngreso;
+    private Domicilio domicilio;
 
 }

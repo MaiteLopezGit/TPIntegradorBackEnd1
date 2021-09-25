@@ -19,9 +19,6 @@ public class Domicilio {
     private int numero;
     private String provincia;
 
-    @OneToOne
-    private Paciente paciente;
-
     public Integer getId() {
         return this.id;
     }

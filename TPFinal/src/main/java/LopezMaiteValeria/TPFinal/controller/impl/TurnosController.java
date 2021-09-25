@@ -7,6 +7,7 @@ import LopezMaiteValeria.TPFinal.model.TurnoDTO;
 import LopezMaiteValeria.TPFinal.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class TurnosController implements IController<TurnoDTO> {
 
     @Override
     @PostMapping()
-    public ResponseEntity<?> crear(@RequestBody TurnoDTO turnoDTO) {
+    public ResponseEntity<?> crear(@RequestBody @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) TurnoDTO turnoDTO) {
         turnoService.crear(turnoDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }

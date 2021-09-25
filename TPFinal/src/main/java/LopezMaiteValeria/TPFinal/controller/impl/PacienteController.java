@@ -7,6 +7,7 @@ import LopezMaiteValeria.TPFinal.model.PacienteDTO;
 import LopezMaiteValeria.TPFinal.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class PacienteController implements IController<PacienteDTO> {
 
     @Override
     @PostMapping()
-    public ResponseEntity<?> crear(@RequestBody PacienteDTO pacienteDTO) {
+    public ResponseEntity<?> crear(@RequestBody @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) PacienteDTO pacienteDTO) {
         pacienteService.crear(pacienteDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }

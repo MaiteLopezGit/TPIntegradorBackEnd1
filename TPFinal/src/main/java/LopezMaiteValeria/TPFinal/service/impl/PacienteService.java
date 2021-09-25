@@ -19,13 +19,14 @@ public class PacienteService implements IService<PacienteDTO> {
     IPacienteRepository pacienteRepository;
 
     private final Logger logger = Logger.getLogger(PacienteService.class);
+
+    @Autowired
     private ObjectMapper mapper;
 
     @Override
     public void crear(PacienteDTO pacienteDTO) {
-        Paciente paciente = null;
+        Paciente paciente = mapper.convertValue(pacienteDTO, Paciente.class);
         try {
-            paciente = mapper.convertValue(pacienteDTO, Paciente.class);
             pacienteRepository.save(paciente);
         } catch (Exception e) {
             logger.error(e.getMessage());

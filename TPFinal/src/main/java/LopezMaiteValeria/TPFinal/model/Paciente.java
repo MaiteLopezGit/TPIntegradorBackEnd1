@@ -21,8 +21,10 @@ public class Paciente {
     private int dni;
     private LocalDateTime fechaIngreso;
 
+
     @OneToOne
     private Domicilio domicilio;
+
 
     @OneToMany(mappedBy = "paciente")
     @JsonIgnore //Esta anotacion se acrega porque el mapper sino entra en un ciclo infinito
