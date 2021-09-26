@@ -392,3 +392,55 @@ insert into odontologos (apellido, matricula, nombre, id) values (?, ?, ?, ?) [2
 [2021-09-26 16:19:51] [DEBUG] [TurnoService:27] Iniciando el metodo crear()
 [2021-09-26 19:34:02] [DEBUG] [PacienteService:58] Iniciando el metodo buscarTodos()
 [2021-09-26 19:34:02] [DEBUG] [PacienteService:70] Terminando el metodo buscarTodos()
+[2021-09-26 20:40:52] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:40:52] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:41:22] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [1, 'Lopez', 16248538, TIMESTAMP '2012-09-17 18:47:52.069', 'Eduardo', 1]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:41:22] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:41:30] [ERROR] [PacienteService:51] No se encontro el paciente con el id: 4 buscado
+[2021-09-26 20:41:30] [DEBUG] [PacienteService:53] Terminando el metodo buscar()
+[2021-09-26 20:41:33] [DEBUG] [PacienteService:53] Terminando el metodo buscar()
+[2021-09-26 20:42:14] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [2, 'Lopez', 33747320, TIMESTAMP '2012-09-17 18:47:52.069', 'Ivan', 1]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:42:14] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:42:32] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:42:32] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:42:43] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [3, 'Lopez', 34500409, TIMESTAMP '2012-09-17 18:47:52.069', 'Nadya', 2]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:42:43] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:43:05] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:43:06] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:43:07] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:43:08] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:43:08] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:46:35] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:46:35] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:48:43] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint [FKTFF8IEH5WFECPJF45I11XUG8C]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:48:43] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:48:49] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint [FKTFF8IEH5WFECPJF45I11XUG8C]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:48:49] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:48:55] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint [FKTFF8IEH5WFECPJF45I11XUG8C]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:48:55] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:49:01] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:49:01] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:49:10] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:49:10] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:49:15] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:49:15] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:49:22] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint [FKTFF8IEH5WFECPJF45I11XUG8C]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:49:22] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:50:53] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:53:42] [DEBUG] [PacienteService:59] Iniciando el metodo buscarTodos()
+[2021-09-26 20:53:42] [DEBUG] [PacienteService:71] Terminando el metodo buscarTodos()
+[2021-09-26 20:53:49] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [1, 'Lopez', 16248538, TIMESTAMP '2012-09-17 18:47:52.069', 'Eduardo', 1]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:53:49] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:53:57] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [2, 'Lopez', 33747320, TIMESTAMP '2012-09-17 18:47:52.069', 'Ivan', 1]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:53:57] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:56:30] [ERROR] [PacienteService:33] could not execute statement; SQL [n/a]; constraint ["PRIMARY KEY ON PUBLIC.PACIENTES(ID) [3, 'Lopez', 34500409, TIMESTAMP '2012-09-17 18:47:52.069', 'Nadya', 2]"; SQL statement:
+insert into pacientes (apellido, dni, domicilio_id, fecha_ingreso, nombre, id) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+[2021-09-26 20:56:30] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:56:31] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:56:32] [DEBUG] [PacienteService:35] Terminando el medoto crear()
+[2021-09-26 20:56:54] [DEBUG] [PacienteService:35] Terminando el medoto crear()

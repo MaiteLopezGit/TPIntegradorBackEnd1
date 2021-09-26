@@ -4,6 +4,7 @@ import LopezMaiteValeria.TPFinal.controller.IController;
 import LopezMaiteValeria.TPFinal.model.OdontologoDTO;
 import LopezMaiteValeria.TPFinal.model.Paciente;
 import LopezMaiteValeria.TPFinal.model.PacienteDTO;
+import LopezMaiteValeria.TPFinal.service.IPacienteService;
 import LopezMaiteValeria.TPFinal.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,8 +19,7 @@ import java.util.Set;
 @RequestMapping("/pacientes")
 public class PacienteController implements IController<PacienteDTO> {
     @Autowired
-    @Qualifier("pacienteService")
-    private IService<PacienteDTO> pacienteService;
+    private IPacienteService pacienteService;
 
     @Override
     @PostMapping()
@@ -60,5 +60,10 @@ public class PacienteController implements IController<PacienteDTO> {
         pacienteService.eliminar(id);
         return ResponseEntity.ok("Se elimino correctamente el paciente con id: " + id);
 
+    }
+
+    @GetMapping("/listaApellido")
+    public Set<PacienteDTO> buscarPorApellido(@RequestParam String apellido){
+        return pacienteService.buscarPacientesConApellidoLike(apellido);
     }
 }

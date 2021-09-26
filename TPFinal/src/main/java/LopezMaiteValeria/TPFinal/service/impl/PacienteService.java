@@ -3,6 +3,7 @@ package LopezMaiteValeria.TPFinal.service.impl;
 import LopezMaiteValeria.TPFinal.model.PacienteDTO;
 import LopezMaiteValeria.TPFinal.model.Paciente;
 import LopezMaiteValeria.TPFinal.repository.IPacienteRepository;
+import LopezMaiteValeria.TPFinal.service.IPacienteService;
 import LopezMaiteValeria.TPFinal.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 @Service
-public class PacienteService implements IService<PacienteDTO> {
+public class PacienteService implements IPacienteService {
 
     @Autowired
     IPacienteRepository pacienteRepository;
@@ -94,5 +95,16 @@ public class PacienteService implements IService<PacienteDTO> {
             logger.error(e.getMessage());
         }
         logger.debug("Finalizando el metodo eliminar()");
+    }
+
+    @Override
+    public Set<PacienteDTO> buscarPacientesConApellidoLike(String apellido) {
+        List<Paciente> pacientes =  pacienteRepository.obtenerPacientesConApellidoLike(apellido);
+
+        Set<PacienteDTO> pacientesDTO = new HashSet<>();
+        for(Paciente paciente : pacientes){
+            pacientesDTO.add(mapper.convertValue(paciente,PacienteDTO.class));
+        }
+        return pacientesDTO;
     }
 }
