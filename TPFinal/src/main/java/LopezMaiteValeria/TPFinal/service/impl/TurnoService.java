@@ -24,4 +24,19 @@ public class TurnoService implements ITurnoService {
         List<Turno> turnos = turnoRepository.findAll();
         return turnos;
     }
+
+    @Override
+    public Turno buscar(Integer id) {
+        return turnoRepository.findById(id).get(); //Find devuelve un Optional, con get obtengo el turno
+    }
+
+    @Override
+    public void actualizar(Turno turno) {
+        turnoRepository.save(turno);
+    }
+
+    @Override
+    public void eliminar(Integer id) {
+        turnoRepository.deleteById(id);
+    }
 }

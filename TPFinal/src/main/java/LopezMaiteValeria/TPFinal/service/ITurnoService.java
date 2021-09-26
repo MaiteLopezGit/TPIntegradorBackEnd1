@@ -4,9 +4,13 @@ import LopezMaiteValeria.TPFinal.model.Turno;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 public interface ITurnoService {
-    public void crearTurno(Turno turno);
+    void crearTurno(Turno turno);
+    List<Turno> buscarTodos();
+    Turno buscar(Integer id);
+    void actualizar(Turno turno);
+    void eliminar(Integer id);
 
-    public List<Turno> buscarTodos();
 }

@@ -9,11 +9,11 @@ import java.util.Set;
 
 public interface IController<T> {
 
-    public ResponseEntity<?> crear(T t);
+    ResponseEntity<?> crear(T t);
 
-    public ResponseEntity<Set<T>> buscarTodos();
+    ResponseEntity<Set<T>> buscarTodos();
 
-    public ResponseEntity<T> buscar(Integer id);
+    ResponseEntity<T> buscar(Integer id);
 
     ResponseEntity<?> actualizar(T t);
 
