@@ -3,6 +3,7 @@ package LopezMaiteValeria.TPFinal.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Table (name = "pacientes")
 @Getter
 @Setter
+@ToString
 public class Paciente {
     @Id
     @GeneratedValue
@@ -21,14 +23,11 @@ public class Paciente {
     private int dni;
     private LocalDateTime fechaIngreso;
 
-
     @OneToOne
     private Domicilio domicilio;
 
-
     @OneToMany(mappedBy = "paciente")
-    @JsonIgnore //Esta anotacion se acrega porque el mapper sino entra en un ciclo infinito
-    //Al buscar los metodos y atributos de Paciente que tiene turnos y cuando va a turnos tiene Pacientes...
+    @JsonIgnore
     private Set<Turno> turnos;
 
     public Integer getId() {

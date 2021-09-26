@@ -13,5 +13,6 @@ public class DomicilioDTO {
     private String calle;
     private int numero;
     private String provincia;
+    private Paciente paciente;
 
 }

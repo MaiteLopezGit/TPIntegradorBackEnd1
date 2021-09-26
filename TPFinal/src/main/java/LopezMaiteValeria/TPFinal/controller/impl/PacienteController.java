@@ -23,7 +23,7 @@ public class PacienteController implements IController<PacienteDTO> {
 
     @Override
     @PostMapping()
-    public ResponseEntity<?> crear(@RequestBody @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) PacienteDTO pacienteDTO) {
+    public ResponseEntity<?> crear(@RequestBody PacienteDTO pacienteDTO) {
         pacienteService.crear(pacienteDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }

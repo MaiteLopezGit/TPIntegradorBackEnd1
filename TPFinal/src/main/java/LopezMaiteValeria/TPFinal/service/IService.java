@@ -10,4 +10,6 @@ public interface IService<T> {
     Set<T> buscarTodos();
     void actualizar(T t);
     void eliminar(Integer id);
+
+
 }
