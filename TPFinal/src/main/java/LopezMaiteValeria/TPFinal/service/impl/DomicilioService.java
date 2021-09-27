@@ -23,12 +23,9 @@ public class DomicilioService implements IService<DomicilioDTO> {
     @Override
     public void crear(DomicilioDTO domicilioDTO) {
         logger.debug("Iniciando el metodo crear()");
-        try {
             Domicilio domicilio = mapper.convertValue(domicilioDTO, Domicilio.class);
             domicilioRepository.save(domicilio);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
+
         logger.debug("Termino el metodo crear()");
     }
 
@@ -37,16 +34,10 @@ public class DomicilioService implements IService<DomicilioDTO> {
         logger.debug("Iniciando el metodo buscar");
         Domicilio domicilio = null;
         DomicilioDTO domicilioDTO = null;
-        try {
             if (domicilioRepository.findById(id).isPresent()) {
                 domicilio = domicilioRepository.findById(id).get();
                 domicilioDTO = mapper.convertValue(domicilio, DomicilioDTO.class);
             }
-                 else
-                throw  new Exception("No se encontro el domicilio con id: " + id + " buscado");
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
         logger.debug("Termino el metodo buscar");
         return domicilioDTO;
     }
@@ -57,14 +48,11 @@ public class DomicilioService implements IService<DomicilioDTO> {
         List<Domicilio> domicilios = new ArrayList<>();
         Set<DomicilioDTO> domiciliosDTO = new HashSet<>();
 
-        try {
             domicilios = domicilioRepository.findAll();
             for (Domicilio domicilo : domicilios){
                 domiciliosDTO.add(mapper.convertValue(domicilo,DomicilioDTO.class));
             }
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
+
         logger.debug("Termino el metodo buscarTodos()");
         return domiciliosDTO;
     }
@@ -72,23 +60,17 @@ public class DomicilioService implements IService<DomicilioDTO> {
     @Override
     public void actualizar(DomicilioDTO domicilioDTO) {
         logger.debug("Iniciando el metodo actualizar()");
-        try {
             Domicilio domicilio = mapper.convertValue(domicilioDTO, Domicilio.class);
             if(domicilioRepository.existsById(domicilio.getId()))
                 domicilioRepository.save(domicilio);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
+
         logger.debug("Termino el metodo actializar()");
     }
 
     @Override
     public void eliminar(Integer id) {
         logger.debug("Inciando metodo eliminar()");
-        try {
             domicilioRepository.deleteById(id);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
+
     }
 }
